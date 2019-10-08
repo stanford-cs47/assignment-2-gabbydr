@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, Platform,SafeAreaView } from 'react-native';
 import { Images, Profiles, Metrics } from './App/Themes';
 
 
@@ -71,7 +71,7 @@ export default class App extends React.Component {
   }
 }
 
-const { height, width } = Dimensions.get('window');
+const { height, width } = Dimensions.get('window')
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -82,16 +82,16 @@ const styles = StyleSheet.create({
   },
   navigationBar: {
     width: '100%',
-    height: 44,
+    height: Platform.OS === 'ios' ? 44 : 56,
     backgroundColor: '#EAEAEA',
     borderBottomColor: '#C5C5C5',
     borderBottomWidth: 1,
     justifyContent: 'space-between',
     flexDirection: 'row',
-    paddingTop: 15,
-    paddingBottom: 5,
     paddingLeft: 10,
-    paddingRight: 10
+    paddingRight: 10,
+    paddingTop: 15,
+    alignItems: 'center'
   },
   profileCard: {
     margin: 15,
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     paddingLeft: 50,
     paddingRight: 50,
+    alignItems: 'center'
   },
   profileLogo: {
     width: width * .89,
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
   settingsLogo: {
     width: 25,
     height: 25,
-    tintColor: '#C5C5C5'
+    tintColor: '#C5C5C5',
   },
   messagesLogo: {
     width: 25,
